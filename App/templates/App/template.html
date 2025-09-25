@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+	<meta charset="UTF-8">
+	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+	<link rel="icon" type="image/x-icon" href="{% static 'App/images/favicon.ico' %}">
+	<title>{% block title %} Welcome {% endblock %}</title>
+</head>
+<body class="flex flex-col min-h-screen">
+	{% include 'App/components/header/header.html' %}
+	<main class="flex-grow flex items-center justify-center bg-gray-50 px-4">
+		{% block container %} {% endblock %}
+	</main>
+	{% include 'App/components/footer/footer.html' %}
+</body>
+</html>
