@@ -1,4 +1,4 @@
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth.models import Group
 from django.shortcuts import render, redirect
 from django.views import View
@@ -11,6 +11,7 @@ class HomeView(View):
 
     def get(self, request):
         return render(request, self.template_name)
+
 
 class UserRegisterView(View):
     template_name = 'App/pages/account/register.html'
@@ -34,3 +35,20 @@ class UserRegisterView(View):
             return redirect('home')
 
         return render(request, self.template_name, {'form': form})
+
+
+class LogoutView(View):
+    template_name = "App/pages/account/logout.html"
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+    def post(self, request):
+        logout(request)
+        return redirect('home')
+
+
+class AiHomeView(View):
+    template_name = 'App/pages/ai/main.html'
+    def get(self, request):
+        return render(request, self.template_name)

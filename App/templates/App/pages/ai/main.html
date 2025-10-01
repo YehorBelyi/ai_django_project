@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+	<meta charset="UTF-8">
+	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+	<link rel="icon" type="image/x-icon" href="{% static 'App/images/favicon.ico' %}">
+	<link rel="stylesheet" href="{% static 'App/css/style.css' %}">
+	<script src="{% static "App/js/script.js" %}" defer></script>
+	<title>{% block title %} AI {% endblock %}</title>
+</head>
+<body>
+	{% include 'App/components/second_header/header.html' %}
+	{% include 'App/components/sidebar/sidebar.html' %}
+	{% include 'App/components/ai_main/main.html' %}
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'App/template.html' %}
+
+{% block title %} Logout {% endblock %}
+
+{% block container %}
+<div class="w-full max-w-sm rounded-xl bg-white p-6 shadow-2xl">
+    <h2 class="mb-6 text-center text-2xl font-bold">Logout</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        <button type="submit"
+            class="w-full rounded-md bg-red-600 px-4 py-2 font-semibold text-white shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500">Yes</button>
+        <a href="javascript:history.back()"
+            class="w-full rounded-md bg-indigo-600 px-4 py-2 font-semibold text-white shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">Cancel</a>
+    </form>
+</div>
+{% endblock %}
