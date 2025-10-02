@@ -1,8 +1,10 @@
 from django.contrib.auth import login, logout
 from django.contrib.auth.models import Group
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views import View
 from .forms import UserRegisterForm
+import random
 
 
 # Create your views here.
@@ -50,5 +52,20 @@ class LogoutView(View):
 
 class AiHomeView(View):
     template_name = 'App/pages/ai/main.html'
+
     def get(self, request):
         return render(request, self.template_name)
+
+    def post(self, request):
+        message = request.POST.get('message', '')
+        responses = [
+            "test_response1",
+            "test_response2",
+            "test_response3",
+            "test_response4",
+            "test_response5",
+        ]
+        return JsonResponse({
+            "user_message": message,
+            "ai_message": random.choice(responses)
+        })
